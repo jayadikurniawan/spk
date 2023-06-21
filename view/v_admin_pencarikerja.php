@@ -24,21 +24,13 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Looping data dari database -->
             <?php
-            // Ambil data dari database berdasarkan nama perusahaan dari session user
-            session_start();
-            $namaPerusahaan = $_SESSION['user'];
-            require("../model/m_konek.php");
+            require "../controller/c_admin.php";
 
-            // Query untuk mendapatkan data list pekerjaan perusahaan tertentu
-            $query = "SELECT * FROM pencariKerja";
-            $stmt = $mysqli->prepare($query);
-            $stmt->execute();
+            $controller = new c_admin();
+            $data = $controller->getListPencariKerja();
 
-            // Ambil semua data dan tampilkan dalam tabel
-            $result = $stmt->get_result();
-            while ($row = $result->fetch_assoc()) {
+            foreach ($data as $row) {
                 echo "<tr>";
                 echo "<td>" . $row['username'] . "</td>";
                 echo "<td>" . $row['password'] . "</td>";

@@ -61,7 +61,7 @@
       <input type="submit" value="Login">
     </form>
     
-  <p>Don't have an account? <a href="v_signup.php">Sign up</a></p>
+  <p>Don't have an account? <a href="view/v_signup.php">Sign up</a></p>
 
   </div>
 

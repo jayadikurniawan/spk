@@ -8,6 +8,7 @@
         /* CSS Anda */
     </style>
 </head>
+
 <body>
     <h1>Dashboard Pemberi Kerja</h1>
     <h2>Data List Pelamar</h2>
@@ -38,41 +39,32 @@
 
             // Ambil semua data dan tampilkan dalam tabel
             $result = $stmt->get_result();
-while ($row = $result->fetch_assoc()) {
-    echo "<tr>";
-    echo "<td>" . $row['pelamar'] . "</td>";
-    echo "<td>" . $row['posisi'] . "</td>";
-    echo "<td>" . $row['status'] . "</td>";
-    echo "<td>";
-    echo "<form action='../controller/c_pemberiKerja_update.php' method='POST' onsubmit='return confirmAction()'>";
-    echo "<input type='hidden' name='pelamar' value='" . $row['pelamar'] . "'>";
-    echo "<input type='hidden' name='idpekerjaan' value='" . $row['idpekerjaan'] . "'>";
-    echo "<button type='submit' name='status' value='DITERIMA' " . ($row['status'] != 'PENDING' ? 'disabled' : '') . ">Terima</button>";
-    echo "</form>";
-    echo "</td>";
-    echo "<td>";
-    echo "<form action='../controller/c_pemberiKerja_update.php' method='POST' onsubmit='return confirmAction()'>";
-    echo "<input type='hidden' name='pelamar' value='" . $row['pelamar'] . "'>";
-    echo "<input type='hidden' name='idpekerjaan' value='" . $row['idpekerjaan'] . "'>";
-    echo "<button type='submit' name='status' value='DITOLAK' " . ($row['status'] != 'PENDING' ? 'disabled' : '') . ">Tolak</button>";
-    echo "</form>";
-    echo "</td>";
-    echo "</tr>";
-}
-?>
-
-<script>
-    function confirmAction() {
-        return confirm("Apakah Anda yakin ingin melanjutkan?");
-    }
-</script>
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row['pelamar'] . "</td>";
+                echo "<td>" . $row['posisi'] . "</td>";
+                echo "<td>" . $row['status'] . "</td>";
+                
+                echo "<td>";
+                echo "<form action='v_pemberiKerja_showprofile.php' method='POST'>";
+                echo "<input type='hidden' name='pelamar' value='" . $row['pelamar'] . "'>";
+                echo "<input type='hidden' name='status' value='" . $row['status'] . "'>";
+                echo "<input type='hidden' name='idpekerjaan' value='" . $row['idpekerjaan'] . "'>";
+                echo "<button type='submit' name='detail'>Detail</button>";
+                echo "</form>";
+                echo "</td>";
+                echo "</tr>";
+            }
+            ?>
 
             
+
+
 
         </tbody>
     </table>
 
-  
+
 
 </body>
 

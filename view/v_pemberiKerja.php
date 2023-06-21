@@ -13,20 +13,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 bg-light sidebar">
-                <h2>Sidebar</h2>
+                <h2>Menu</h2>
                 <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="pemberiKerja_manage.php">Dashboard</a>
-                    </li>
+                  
                     <li class="nav-item">
                         <a class="nav-link" href="v_pemberiKerja_manage.php">Manage Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="list_applicants.php">List Applicants</a>
+                        <a class="nav-link" href="v_pemberikerja_list.php">List Applicants</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="notification.php">Notification</a>
-                    </li>
+                  
                 </ul>
             </div>
 
@@ -36,10 +32,5 @@
             </div>
         </div>
     </div>
-
-
-    <script>
-        // JavaScript tambahan Anda
-    </script>
 </body>
 </html>

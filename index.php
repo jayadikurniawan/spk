@@ -60,6 +60,10 @@
       <input type="password" name="password" placeholder="Password" required>
       <input type="submit" value="Login">
     </form>
+    
+  <p>Don't have an account? <a href="v_signup.php">Sign up</a></p>
+
   </div>
+
 </body>
 </html>

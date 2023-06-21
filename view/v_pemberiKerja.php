@@ -31,6 +31,8 @@
                 <!-- Konten halaman dashboard pemberi kerja -->
             </div>
         </div>
+        <button onclick="window.location.href='../controller/c_logout.php'" class="tombol">logout</button>
+
     </div>
 </body>
 </html>

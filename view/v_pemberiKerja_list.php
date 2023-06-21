@@ -38,44 +38,42 @@
 
             // Ambil semua data dan tampilkan dalam tabel
             $result = $stmt->get_result();
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row['pelamar'] . "</td>";
-                echo "<td>" . $row['posisi'] . "</td>";
-                echo "<td>" . $row['status'] . "</td>";
-                echo "<td><button onclick='konfirmasiTerima()'>Terima</button></td>";
-                echo "<td><button onclick='konfirmasiTolak()'>Tolak</button></td>";
-                echo "</tr>";
-            }   
-            ?>
+while ($row = $result->fetch_assoc()) {
+    echo "<tr>";
+    echo "<td>" . $row['pelamar'] . "</td>";
+    echo "<td>" . $row['posisi'] . "</td>";
+    echo "<td>" . $row['status'] . "</td>";
+    echo "<td>";
+    echo "<form action='../controller/c_pemberiKerja_update.php' method='POST' onsubmit='return confirmAction()'>";
+    echo "<input type='hidden' name='pelamar' value='" . $row['pelamar'] . "'>";
+    echo "<input type='hidden' name='idpekerjaan' value='" . $row['idpekerjaan'] . "'>";
+    echo "<button type='submit' name='status' value='DITERIMA' " . ($row['status'] != 'PENDING' ? 'disabled' : '') . ">Terima</button>";
+    echo "</form>";
+    echo "</td>";
+    echo "<td>";
+    echo "<form action='../controller/c_pemberiKerja_update.php' method='POST' onsubmit='return confirmAction()'>";
+    echo "<input type='hidden' name='pelamar' value='" . $row['pelamar'] . "'>";
+    echo "<input type='hidden' name='idpekerjaan' value='" . $row['idpekerjaan'] . "'>";
+    echo "<button type='submit' name='status' value='DITOLAK' " . ($row['status'] != 'PENDING' ? 'disabled' : '') . ">Tolak</button>";
+    echo "</form>";
+    echo "</td>";
+    echo "</tr>";
+}
+?>
+
+<script>
+    function confirmAction() {
+        return confirm("Apakah Anda yakin ingin melanjutkan?");
+    }
+</script>
+
+            
 
         </tbody>
     </table>
 
   
-<script>
-function konfirmasiTerima() {
-    if (confirm("Apakah Anda yakin ingin menerima?")) {
-        // Jika pengguna memilih "Yes"
-        // Lakukan sesuatu, misalnya kirim data ke halaman lain atau jalankan fungsi tertentu
-        // ...
-        window.location.href = "c_pencarikerja_update.php?pelamar=" + pelamar + "&idpekerjaan=" + idpekerjaan;
-    }
-}
 
-function konfirmasiTolak() {
-    if (confirm("Apakah Anda yakin ingin menolak?")) {
-        // Jika pengguna memilih "Yes"
-        // Lakukan sesuatu, misalnya kirim data ke halaman lain atau jalankan fungsi tertentu
-        // ...
-        
-    } else {
-        // Jika pengguna memilih "No"
-        // Kembali ke halaman sebelumnya atau lakukan sesuatu yang diperlukan
-        // ...
-    }
-}
-</script>
 </body>
 
 </html>

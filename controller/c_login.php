@@ -14,9 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($login->checkLogin($userType, $username, $password)) {
         // Login berhasil
         if ($userType === "admin") {
+            $_SESSION['user'] = $username;
             header("Location: ../view/v_admin.php");
             exit;
         } elseif ($userType === "pencarikerja") {
+            $_SESSION['user'] = $username;
             header("Location: ../view/v_pencariKerja.php");
             exit;
         } elseif ($userType === "pemberikerja") {

@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 bg-light sidebar">
-                <h2>Menu</h2>
+                <h2>M   enu</h2>
                 <ul class="nav flex-column">
                   
                     <li class="nav-item">

@@ -19,6 +19,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="v_pencarikerja_search.php">List Applicants</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="v_pencarikerja_notif.php">Notifikasi</a>
+                    </li>
                   
                 </ul>
             </div>

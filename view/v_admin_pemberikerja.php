@@ -37,11 +37,20 @@
                 echo "<td>" . $row['password'] . "</td>";
                 echo "<td>" . $row['password'] . "</td>";
                 echo "<td><button id=\"$row[username]\">edit</button></td>";
+                echo "<td><button id=\"$row[username]d\" onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini?\")'>hapus</button></td>";
                 echo "
                     <script>
-                      document.getElementById(\"$row[username]\").addEventListener(\"click\", function() {
-                        window.location.href = \"v_admin_pemberikerja_edit.php?id=$row[username]\";
-                      });
+                        document.getElementById(\"$row[username]\").addEventListener(\"click\", function() {
+                            window.location.href = \"v_admin_pemberikerja_edit.php?id=$row[username]\";
+                        });
+                    </script>
+                ";
+
+                echo "
+                    <script>
+                        document.getElementById(\"$row[username]d\").addEventListener(\"click\", function() {
+                            window.location.href = \"v_admin_pemberikerja_hapus.php?id=$row[username]\";
+                        });
                     </script>
                 ";
                 echo "</tr>";

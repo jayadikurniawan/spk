@@ -5,7 +5,7 @@ class Login {
 
     public function __construct() {
         // Inisialisasi koneksi database
-        $this->db = new PDO("mysql:host=localhost;dbname=spk", "root", "");
+        $this->db = new PDO("mysql:host=localhost;dbname=spk", "root", "mbois");
     }
 
     public function checkLogin($tableName, $username, $password) {

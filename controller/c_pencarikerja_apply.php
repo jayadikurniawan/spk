@@ -1,23 +1,23 @@
+
+
 <?php
-session_start();
-require '../model/m_konek.php';
+require "../model/m_pencariKerja.php";
 
-// Ambil data dari form
-$id = $_POST['id'];
-$perusahaan = $_POST['perusahaan'];
-$posisi = $_POST['posisi'];
-$pelamar = $_SESSION['user'];
-$status = 'PENDING';
+class c_pencariKerjaApply
+{
+    public $model;
 
-// Query INSERT
-$query = "INSERT INTO listpelamar (pelamar, perusahaan, posisi, idpekerjaan, status) VALUES ('$pelamar', '$perusahaan', '$posisi', '$id', '$status')";
+    public function __construct()
+    {
+        $this->model = new m_pencariKerja();
+    }
 
-if ($mysqli->query($query)) {
-    echo "Pendaftaran berhasil!";
-} else {
-    echo "Pendaftaran gagal: " . $mysqli->error;
+    public function getPekerjaan($id){
+        $data = $this->model->getPekerjaan($id);
+        include "../view/v_pencarikerja_apply.php";
+    }
+
+    public function apply($pelamar, $perusahaan, $posisi, $id, $status){
+        $this->model->apply($pelamar, $perusahaan, $posisi, $id, $status);
+    }
 }
-
-// Tutup koneksi database
-$mysqli->close();
-?>

@@ -18,4 +18,5 @@
     $stmt->execute();
 
     // Redirect atau berikan respons sesuai kebutuhan Anda
+    header("Location: ../view/v_pemberiKerja_manage.php");
     ?>

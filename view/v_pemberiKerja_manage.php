@@ -43,7 +43,6 @@
                 echo "<td>" . $row['posisi'] . "</td>";
                 echo "<td>" . $row['tanggalPosting'] . "</td>";
                 echo "<td>" . $row['gaji'] . "</td>";
-                echo "<td><button>edit</button></td>";
                 echo "</tr>";
             }
             ?>

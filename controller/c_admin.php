@@ -22,9 +22,9 @@ class c_admin
         include "../view/v_admin_pemberikerja_edit.php";
     }
 
-    public function updatePemberiKerja($id, $password)
+    public function updatePemberiKerja($username, $password, $newEmail, $newTelepon, $newNama, $newAlamat)
     {
-        $this->model->updatePemberiKerja($id, $password);
+        $this->model->updatePemberiKerja($username, $password, $newEmail, $newTelepon, $newNama, $newAlamat);
         header("location:../page_admin/list_pemberikerja.php");
     }
 

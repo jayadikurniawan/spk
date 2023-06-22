@@ -79,13 +79,15 @@ class m_admin
         $stmt->execute();
     }
 
-    public function updatePemberiKerja($id, $password)
+    public function updatePemberiKerja($username, $password, $newEmail, $newTelepon, $newNama, $newAlamat)
     {
         global $mysqli;
 
-        $query = "UPDATE pemberiKerja SET username='$id', password='$password' WHERE username = '$id'";
+        $query = "UPDATE pemberiKerja SET username=?, password=?, email=?, telepon=?, nama=?, alamat=? WHERE username=?";
         $stmt = $mysqli->prepare($query);
+        $stmt->bind_param("sssssss", $username, $password, $newEmail, $newTelepon, $newNama, $newAlamat, $username);
         $stmt->execute();
+        
     }
 
     public function deletePencariKerja($id)

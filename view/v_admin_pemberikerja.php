@@ -17,9 +17,13 @@
     <table>
         <thead>
             <tr>
-                <th>Nama Pekerjaan</th>
-                <th>Tanggal </th>
-                <th>Gaji</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Telepon</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+                
                 <th></th>
             </tr>
         </thead>
@@ -30,7 +34,10 @@
                 echo "<tr>";
                 echo "<td>" . $row['username'] . "</td>";
                 echo "<td>" . $row['password'] . "</td>";
-                echo "<td>" . $row['password'] . "</td>";
+                echo "<td>" . $row['email'] . "</td>";
+                echo "<td>" . $row['telepon'] . "</td>";
+                echo "<td>" . $row['nama'] . "</td>";
+                echo "<td>" . $row['alamat'] . "</td>";
                 echo "<td><button id=\"$row[username]\">edit</button></td>";
                 echo "<td><button id=\"$row[username]d\" onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini?\")'>hapus</button></td>";
                 echo "

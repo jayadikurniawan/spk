@@ -1,22 +1,22 @@
 <?php
-    // Ambil data dari form
-    session_start();
-    require("../model/m_konek.php");
-    $posisi = $_POST['posisi'];
-    $perusahaan = $_SESSION['user'];
-    $gaji = $_POST['gaji'];
-    $deskripsi = $_POST['deskripsi'];
-    $alamat = $_POST['alamat'];
-    $tanggalPosting = $_POST['tanggalPosting'];
-    $penerimaan = $_POST['penerimaan'];
-    $id = $_POST['id'];
+require "../model/m_pemberiKerja.php";
 
-    // Lakukan operasi INSERT ke dalam tabel listpekerjaan
-    $query = "INSERT INTO listpekerjaan (posisi, perusahaan, gaji, deskripsi, alamat, tanggalPosting, penerimaan, id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $mysqli->prepare($query);
-    $stmt->bind_param("ssssssss", $posisi, $perusahaan, $gaji, $deskripsi, $alamat, $tanggalPosting, $penerimaan, $id);
-    $stmt->execute();
+class c_pemberiKerjaManage
+{
+    public $model;
 
-    // Redirect atau berikan respons sesuai kebutuhan Anda
-    header("Location: ../view/v_pemberiKerja_manage.php");
-    ?>
+    public function __construct()
+    {
+        $this->model = new m_pemberiKerja();
+    }
+
+    public function manage(){
+        $data = $this->model->getListPekerjaan();
+        include "../view/v_pemberiKerja_manage.php";
+    }
+
+    public function add($posisi, $perusahaan, $gaji, $deskripsi, $alamat, $tanggalPosting, $penerimaan, $id){
+        $this->model->addPekerjaan($posisi, $perusahaan, $gaji, $deskripsi, $alamat, $tanggalPosting, $penerimaan, $id);
+        header("Location: manage.php");
+    }
+}

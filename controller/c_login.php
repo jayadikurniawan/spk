@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             exit;
         } elseif ($userType === "pemberikerja") {
             $_SESSION['user'] = $username;
-            header("Location: ../view/v_pemberiKerja.php");
+            header("Location: ../page_pemberikerja/dashboard.php");
             exit;
         }
     } else {

@@ -25,20 +25,8 @@
         <tbody>
             <!-- Looping data dari database -->
             <?php
-            // Ambil data dari database berdasarkan nama perusahaan dari session user
-            session_start();
-            $namaPerusahaan = $_SESSION['user'];
-            require("../model/m_konek.php");
 
-            // Query untuk mendapatkan data list pekerjaan perusahaan tertentu
-            $query = "SELECT * FROM listpekerjaan WHERE perusahaan = ?";
-            $stmt = $mysqli->prepare($query);
-            $stmt->bind_param("s", $namaPerusahaan);
-            $stmt->execute();
-
-            // Ambil semua data dan tampilkan dalam tabel
-            $result = $stmt->get_result();
-            while ($row = $result->fetch_assoc()) {
+            foreach ($data as $row) {
                 echo "<tr>";
                 echo "<td>" . $row['posisi'] . "</td>";
                 echo "<td>" . $row['tanggalPosting'] . "</td>";
@@ -54,7 +42,7 @@
     <button id="addJobButton">Add Pekerjaan</button>
     <div id="jobFormContainer" style="display: none;">
         <h2>Add Pekerjaan</h2>
-        <form id="jobForm" action="../controller/c_pemberiKerja_manage.php" method="POST">
+        <form id="jobForm" action="manage.php" method="POST">
             <input type="text" name="posisi" placeholder="Posisi" required><br>
             <input type="text" name="gaji" placeholder="Gaji" required><br>
             <textarea name="deskripsi" placeholder="Deskripsi" required></textarea><br>

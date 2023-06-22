@@ -10,8 +10,8 @@ class c_pencariKerjaSearch
         $this->model = new m_pencariKerja();
     }
 
-    public function search(){
-        $data = $this->model->getListPekerjaan();
+    public function search($cari){
+        $data = $this->model->getListPekerjaan($cari);
         include "../view/v_pencarikerja_search.php";
     }
 

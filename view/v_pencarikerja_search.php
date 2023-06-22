@@ -12,7 +12,10 @@
 <body>
     <h1>List Pemberi Kerja</h1>
     <h2>Data List Pekerjaan</h2>
-
+    <form action="../page_pencarikerja/search.php" method="GET">
+        <input type="text" name="keyword" placeholder="Cari kata kunci...">
+        <button type="submit">Cari</button>
+    </form>
     <!-- Tampilan data List Pekerjaan -->
     <table>
         <thead>

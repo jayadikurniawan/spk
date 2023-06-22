@@ -3,11 +3,11 @@ require "m_konek.php";
 
 class m_pencariKerja
 {
-    public function getListPekerjaan()
+    public function getListPekerjaan($cari)
     {
         global $mysqli;
 
-        $query = "SELECT * FROM listpekerjaan";
+        $query = "SELECT * FROM listpekerjaan where posisi = $cari or perusahaan = $cari";
         $stmt = $mysqli->prepare($query);
         $stmt->execute();
 

@@ -23,22 +23,11 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Looping data dari database -->
+
             <?php
-            // Ambil data dari database berdasarkan nama perusahaan dari session user
-            session_start();
-            $pelamar = $_SESSION['user'];
-            require("../model/m_konek.php");
 
-            // Query untuk mendapatkan data list pekerjaan perusahaan tertentu
-            $query = "SELECT * FROM listpelamar WHERE pelamar = ?";
-            $stmt = $mysqli->prepare($query);
-            $stmt->bind_param("s", $pelamar);
-            $stmt->execute();
-
-            // Ambil semua data dan tampilkan dalam tabel
-            $result = $stmt->get_result();
-            while ($row = $result->fetch_assoc()) {
+            
+            foreach ($data as $row) {
                 echo "<tr>";
                 echo "<td>" . $row['perusahaan'] . "</td>";
                 echo "<td>" . $row['posisi'] . "</td>";

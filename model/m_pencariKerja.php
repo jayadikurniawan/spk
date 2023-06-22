@@ -48,6 +48,27 @@ class m_pencariKerja
         $stmt->execute();
     }
 
-    
+    public function getListLamar()
+    {
+        session_start();
+        global $mysqli;
 
+        $pelamar = $_SESSION["user"];
+
+        $query = "SELECT * FROM listpelamar WHERE pelamar = ?";
+
+        $stmt = $mysqli->prepare($query);
+        $stmt->bind_param("s", $pelamar);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $rows = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
+
+        return $rows;
+    }
 }

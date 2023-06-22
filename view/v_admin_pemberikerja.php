@@ -26,11 +26,6 @@
         <tbody>
             <!-- Looping data dari database -->
             <?php
-            require "../controller/c_admin.php";
-
-            $controller = new c_admin();
-            $data = $controller->getListPemberiKerja();
-
             foreach ($data as $row) {
                 echo "<tr>";
                 echo "<td>" . $row['username'] . "</td>";
@@ -41,7 +36,7 @@
                 echo "
                     <script>
                         document.getElementById(\"$row[username]\").addEventListener(\"click\", function() {
-                            window.location.href = \"v_admin_pemberikerja_edit.php?id=$row[username]\";
+                            window.location.href = \"update_pemberikerja.php?id=$row[username]\";
                         });
                     </script>
                 ";
@@ -49,7 +44,7 @@
                 echo "
                     <script>
                         document.getElementById(\"$row[username]d\").addEventListener(\"click\", function() {
-                            window.location.href = \"v_admin_pemberikerja_hapus.php?id=$row[username]\";
+                            window.location.href = \"hapus_pemberikerja.php?id=$row[username]\";
                         });
                     </script>
                 ";

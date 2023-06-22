@@ -7,7 +7,8 @@ class m_pencariKerja
     {
         global $mysqli;
 
-        $query = "SELECT * FROM listpekerjaan where posisi = $cari or perusahaan = $cari";
+        $query = "SELECT * FROM listpekerjaan WHERE posisi = '$cari' OR perusahaan = '$cari'";
+
         $stmt = $mysqli->prepare($query);
         $stmt->execute();
 

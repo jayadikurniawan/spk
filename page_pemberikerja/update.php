@@ -9,7 +9,7 @@ $status = $_POST['status'];
 
 
 try {
-    $controller->apply($pelamar, $idpekerjaan, $status);
+    $controller->apply($status, $pelamar, $idpekerjaan);
     echo "Status berhasil diperbarui!";
 } catch (Exception $e) {
     echo "Gagal memperbarui status: " . $e;

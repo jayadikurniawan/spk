@@ -1,15 +1,4 @@
 <?php
-include("../controller/c_admin.php");
-$controller = new c_admin();
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $controller->updatePemberiKerja($username, $password);
-}
-
-$id = $_GET["id"];
-$data = $controller->getDetailPemberiKerja($id);
 $username = $data["username"];
 $password = $data["password"];
 ?>
@@ -27,7 +16,7 @@ $password = $data["password"];
 <body>
     <h1>Update Program Kerja</h1>
 
-    <form method="post" action="v_admin_pemberikerja_edit.php">
+    <form method="post" action="update_pemberikerja.php">
         
         <div class="div-table-col1">
             username

@@ -29,22 +29,14 @@
             // Ambil data dari database berdasarkan nama perusahaan dari session user
             session_start();
             $namaPerusahaan = $_SESSION['user'];
-            require("../model/m_konek.php");
 
-            // Query untuk mendapatkan data list pekerjaan perusahaan tertentu
-            $query = "SELECT * FROM listpekerjaan";
-            $stmt = $mysqli->prepare($query);
-            $stmt->execute();
-
-            // Ambil semua data dan tampilkan dalam tabel
-            $result = $stmt->get_result();
-            while ($row = $result->fetch_assoc()) {
+            foreach ($data as $row) {
                 echo "<tr>";
                 echo "<td>" . $row['perusahaan'] . "</td>";
                 echo "<td>" . $row['posisi'] . "</td>";
                 echo "<td>" . $row['gaji'] . "</td>";
                 echo "<td>";
-                echo "<form action='v_pencarikerja_apply.php' method='GET'>";
+                echo "<form action='apply.php' method='GET'>";
                 echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
                 echo "<button type='submit'>Apply</button>";
                 echo "</form>";

@@ -12,45 +12,49 @@ class c_admin
 
     public function getListPemberiKerja()
     {
-        return $this->model->getListPemberiKerja();
+        $data = $this->model->getListPemberiKerja();
+        include "../view/v_admin_pemberikerja.php";
     }
 
     public function getDetailPemberiKerja($id)
     {
-        return $this->model->getDetailPemberiKerja($id);
+        $data = $this->model->getDetailPemberiKerja($id);
+        include "../view/v_admin_pemberikerja_edit.php";
     }
 
     public function updatePemberiKerja($id, $password)
     {
         $this->model->updatePemberiKerja($id, $password);
-        header("location:../view/v_admin_pemberikerja.php");
+        header("location:../page_admin/list_pemberikerja.php");
     }
 
     public function getListPencariKerja()
     {
-        return $this->model->getListPencariKerja();
+        $data = $this->model->getListPencariKerja();
+        include "../view/v_admin_pencarikerja.php";
     }
 
     public function getDetailPencariKerja($id)
     {
-        return $this->model->getDetailPencariKerja($id);
+        $data = $this->model->getDetailPencariKerja($id);
+        include "../view/v_admin_pencarikerja_edit.php";
     }
 
     public function updatePencariKerja($id, $password)
     {
         $this->model->updatePencariKerja($id, $password);
-        header("location:../view/v_admin_pencarikerja.php");
+        header("location:../page_admin/list_pencarikerja.php");
     }
 
     public function deletePemberiKerja($id)
     {
         $this->model->deletePemberiKerja($id);
-        header("location:../view/v_admin_pemberikerja.php");
+        header("location:../page_admin/list_pemberikerja.php");
     }
     
     public function deletePencariKerja($id)
     {
         $this->model->deletePencariKerja($id);
-        header("location:../view/v_admin_pencarikerja.php");
+        header("location:../page_admin/list_pencarikerja.php");
     }
 }

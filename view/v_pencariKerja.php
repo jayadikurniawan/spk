@@ -17,10 +17,10 @@
                 <ul class="nav flex-column">
                   
                     <li class="nav-item">
-                        <a class="nav-link" href="v_pencarikerja_search.php">List Applicants</a>
+                        <a class="nav-link" href="search.php">List Applicants</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="v_pencarikerja_notif.php">Notifikasi</a>
+                        <a class="nav-link" href="notifikasi.php">Notifikasi</a>
                     </li>
                   
                 </ul>

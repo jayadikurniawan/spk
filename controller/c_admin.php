@@ -40,18 +40,19 @@ class c_admin
         include "../view/v_admin_pencarikerja_edit.php";
     }
 
-    public function updatePencariKerja($id, $password)
+    public function updatePencariKerja($id, $password, $email, $telepon, $nama, $umur, $alamat, $tanggallahir, $sex)
     {
-        $this->model->updatePencariKerja($id, $password);
+        $this->model->updatePencariKerja($id, $password, $email, $telepon, $nama, $umur, $alamat, $tanggallahir, $sex);
         header("location:../page_admin/list_pencarikerja.php");
     }
+
 
     public function deletePemberiKerja($id)
     {
         $this->model->deletePemberiKerja($id);
         header("location:../page_admin/list_pemberikerja.php");
     }
-    
+
     public function deletePencariKerja($id)
     {
         $this->model->deletePencariKerja($id);

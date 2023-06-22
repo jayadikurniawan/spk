@@ -70,14 +70,16 @@ class m_admin
         return $rows;
     }
 
-    public function updatePencariKerja($id, $password)
+    public function updatePencariKerja($id, $password, $email, $telepon, $nama, $umur, $alamat, $tanggallahir, $sex)
     {
         global $mysqli;
 
-        $query = "UPDATE pencariKerja SET username='$id', password='$password' WHERE username = '$id'";
+        $query = "UPDATE pencariKerja SET username=?, password=?, email=?, telepon=?, nama=?, umur=?, alamat=?, tanggallahir=?, sex=? WHERE username=?";
         $stmt = $mysqli->prepare($query);
+        $stmt->bind_param("ssssssssss", $id, $password, $email, $telepon, $nama, $umur, $alamat, $tanggallahir, $sex, $id);
         $stmt->execute();
     }
+
 
     public function updatePemberiKerja($username, $password, $newEmail, $newTelepon, $newNama, $newAlamat)
     {
@@ -87,7 +89,6 @@ class m_admin
         $stmt = $mysqli->prepare($query);
         $stmt->bind_param("sssssss", $username, $password, $newEmail, $newTelepon, $newNama, $newAlamat, $username);
         $stmt->execute();
-        
     }
 
     public function deletePencariKerja($id)

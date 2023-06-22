@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("../controller/c_pencarikerja_apply.php");
 
 $id = $_POST['id'];
